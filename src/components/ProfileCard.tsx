@@ -1,9 +1,10 @@
-const ProfileCard = () => {
-  const name = "dony lukmansyah"
-  const year = 2004
-  const job = "web developer"
+type ProfileCardTypes ={
+  name: string,
+  year: number,
+  job: string
+}
 
-
+const ProfileCard = (props:ProfileCardTypes) => {
   return (
     <div  style={{
         display: "grid",
@@ -13,9 +14,13 @@ const ProfileCard = () => {
         padding: "5px"
 
     }}>
-      <p>name: {name}</p>
-      <p>year: {year}</p>
-      <p>job: {job}</p>
+      <p>name: {props.name}</p>
+      <p>year: {props.year}</p>
+
+      {
+         
+      }
+      <p>job: {props.job}</p>
     </div>
   );
 };
