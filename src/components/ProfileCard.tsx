@@ -23,6 +23,6 @@ const ProfileCard = (props: ProfileCardTypes) => {
       {props.job ? <p>job: {job}</p> : null}
     </div>
   );
-};
+}; 
 
 export default ProfileCard;
