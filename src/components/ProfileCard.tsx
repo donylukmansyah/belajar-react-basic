@@ -1,26 +1,26 @@
-type ProfileCardTypes ={
-  name: string,
-  year: number,
-  job: string
-}
+type ProfileCardTypes = {
+  name?: string;
+  year: number;
+  job?: string;
+};
 
-const ProfileCard = (props:ProfileCardTypes) => {
+const ProfileCard = (props: ProfileCardTypes) => {
+  const { name = "anonymous", year, job } = props;
   return (
-    <div  style={{
+    <div
+      style={{
         display: "grid",
         gap: "3px",
         border: "1px solid black",
         borderRadius: "10px",
-        padding: "5px"
+        padding: "5px",
+      }}
+    >
+      <p>name: {name}</p>
+      <p>year: {year}</p>
 
-    }}>
-      <p>name: {props.name}</p>
-      <p>year: {props.year}</p>
-
-      {
-         
-      }
-      <p>job: {props.job}</p>
+      {/* if ternary */}
+      {props.job ? <p>job: {job}</p> : null}
     </div>
   );
 };
