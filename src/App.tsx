@@ -1,57 +1,43 @@
-import ProfileCard from "./components/ProfileCard";
+import CardProfile from "./components/CardProfile";
+import gambar from "./assets/e7e096b4-8dff-4faf-a838-aee93b58b1aa.webp";
+import Counter from "./components/Counter";
 
-type Teacher = {
-  name: string;
-  job: string;
-  year: number;
+type DataTypes = {
+  img?: string;
+  title: string;
+  desc: string;
 };
 
-const teachers: Teacher[] = [
-  {
-    name: "minju",
-    job: "programmer",
-    year: 2000,
-  },
-  {
-    name: "hyewon",
-    job: "actress",
-    year: 2004,
-  },
-  {
-    name: "yuri",
-    job: "artist",
-    year: 1999,
-  },
-];
-console.log(teachers[0]);
-
 const App = () => {
+  const data: DataTypes[] = [
+    {
+      title: "ini minju",
+      desc: "ini desc saya",
+    },
+    {
+      img: gambar,
+      title: "ini hyewon",
+      desc: "ini desc saya",
+    },
+    {
+      img: gambar,
+      title: "ini apa ya",
+      desc: "ini desc saya",
+    },
+  ];
+
   return (
     <>
-      <div className="grid grid-cols-3 gap-1">
-        {[
-          <ProfileCard
-            job="software engineer"
-            name="Minguri baechu"
-            year={2000}
-          />,
-          <ProfileCard
-            job="software engineer"
-            name="Minguri baechu"
-            year={2000}
-          />,
-        ]}
-
-        {teachers.map((teacher, index) => {
-          return (
-            <ProfileCard
-              key={index}
-              name={teacher.name}
-              job={teacher.job}
-              year={teacher.year}
-            />
-          );
-        })}
+      <div className="grid grid-cols-3 gap-2 m-2.5">
+        {data.map((value) => (
+          <CardProfile img={value.img} title={value.title} desc={value.desc} />
+        ))}
+      </div>
+      <br />
+      <br />
+      <br />
+      <div className="flex">
+        <Counter />
       </div>
     </>
   );
